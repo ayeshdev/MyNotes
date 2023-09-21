@@ -1,0 +1,53 @@
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useEffect, useState } from "react";
+import { Asset } from 'expo-asset';
+import {
+    ActivityIndicator,
+    Alert,
+    Button,
+    FlatList,
+    Image,
+    SafeAreaView,
+    ScrollView,
+    StyleSheet,
+    Text,
+    View,
+} from "react-native";
+import { BlurView } from 'expo-blur';
+
+
+export function TestUi({ navigation }) {
+    return (
+        <SafeAreaView>
+            <Image style={styles.backgroundImage} source={require('./assets/images/gradient.jpg')}></Image>
+
+            <View style={styles.contentContainer}>
+                <BlurView blurType="light" blurAmount={20} style={styles.cardContainer}>
+                    <Text>This is blur view</Text>
+                </BlurView>
+            </View>
+        </SafeAreaView>
+    )
+
+}
+
+const styles = StyleSheet.create({
+    backgroundImage:{
+        height:'100%',
+        width:undefined,
+        aspectRatio:1,
+        zIndex:1
+    },
+    contentContainer:{
+        display:'flex',
+        height:'100%',
+        width:'100%',
+        position:'absolute',
+        alignItems:'center',
+        justifyContent:'center'
+    },
+    cardContainer:{
+        width:350,
+        height:200,
+    }
+})
